@@ -13,13 +13,12 @@ const thoughtSchema = new Schema(
             type: String,
             required: true
         },
-        // reactions: [reactionSchema],
+        reactions: [{ type: Schema.Types.ObjectId, ref: 'reaction' }],
         createdAt: {
             type: Date,
             immutable: true,
             default: () => Date.now(),
         }
-                // use toLocaleTimeString() getter medthod to format timestamp
     }
 );
 

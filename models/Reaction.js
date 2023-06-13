@@ -16,7 +16,6 @@ const reactionSchema = new Schema(
             immutable: true,
             default: () => Date.now(),
         }
-        // use toLocaleTimeString() getter medthod to format timestamp
     }
 );
 
