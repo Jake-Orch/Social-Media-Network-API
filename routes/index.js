@@ -3,7 +3,7 @@ const apiRoutes = require('./api');
 
 router.use('/api', apiRoutes);
 
-router.use((res, res) => {
+router.use((req, res) => {
     return res.send('Wrong route!');
 });
 

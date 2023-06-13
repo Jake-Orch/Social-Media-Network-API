@@ -10,6 +10,8 @@ app.use(express.json());
 app.use(routes);
 
 db.once('open', () => {
+    // db.dropDatabase() for production purposes only
+    db.dropDatabase()
     app.listen(PORT, () => {
         console.log(`API server running on port ${PORT}`);
     })
