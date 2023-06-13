@@ -21,7 +21,8 @@ const userSchema = new Schema(
                 message: props => `${props} is not a valid email, try again.`
             }
         },
-        // thoughts: [thoughtSchema]
+        thoughts: [{ type: Schema.Types.ObjectId, ref: 'thought' }],
+        friends: [{ type: Schema.Types.ObjectId, ref: 'user' }]
     }
 );
 
