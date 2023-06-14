@@ -18,6 +18,14 @@ npm i
 ```md
 npm run start
 ```
+Once the application is running (which will be confirmed in the console), using insomnia (or another API dev platform), go to either
+```md 
+http://localhost:3001/api/thoughts
+```
+or
+```md
+http://localhost:3001/api/users
+```
 ## Usage  
 To see how to use the application, view the video below
 [<img src="./assets/Tutorial%20thumbnail.JPG">](https://drive.google.com/file/d/1cPDy7z6aOuleR2lz6at8jMadZfO23jfW/view)
