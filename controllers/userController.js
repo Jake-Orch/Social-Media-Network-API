@@ -38,7 +38,7 @@ module.exports = {
 
     async updateUser(req, res) {
         try {
-            const user = await User.findOneAndUpdate({ _id: req.userId }, res.body, { new: true });
+            const user = await User.findOneAndUpdate({ _id: req.params.userId }, req.body, { new: true });
             if (!user) {
                 return res.status(404).json({ message: 'No user found with that ID' });
             }
@@ -51,7 +51,7 @@ module.exports = {
 
     async deleteUser(req, res) {
         try {
-            const user = await User.findOneAndDelete({ _id: req.userId });
+            const user = await User.findOneAndDelete({ _id: req.params.userId });
             if (!user) {
                 return res.status(404).json({ message: 'No user found with that ID' });
             }
@@ -60,6 +60,45 @@ module.exports = {
         } catch (err) {
             res.status(500).json(err);
         }
-    }
+    },
     //Add Friend Methods
+    async addFriend(req, res) {
+        try {
+            const friend = await User.findOne({ _id: req.params.friendId });
+            const user = await User.findOneAndUpdate(
+                { _id: req.params.userId },
+                { $addToSet: { friends: friend.id } },
+                { new: true }
+            );
+            if (!user) {
+                return res.status(404).json({ message: 'No user found with that ID' });
+            }
+            if (!friend) {
+                return res.status(404).json({ message: 'No user found with that ID' });
+            }
+            res.status(200).json(user);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+
+    async removeFriend(req, res) {
+        try {
+            const friend = await User.findOne({ _id: req.params.friendId });
+            const user = await User.findOneAndUpdate(
+                { _id: req.params.userId },
+                { $pull: { friends: friend.id } },
+                { new: true }
+            );
+            if (!user) {
+                return res.status(404).json({ message: 'No user found with that ID' });
+            }
+            if (!friend) {
+                return res.status(404).json({ message: 'No user found with that ID' });
+            }
+            res.status(200).json(user);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    }
 }
