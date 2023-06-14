@@ -20,10 +20,11 @@ npm run start
 ```
 ## Usage  
 To see how to use the application, view the video below
+[<img src="./assets/Tutorial%20thumbnail.JPG">](https://drive.google.com/file/d/1cPDy7z6aOuleR2lz6at8jMadZfO23jfW/view)
 ## License  
 N/A
 ## Contributing  
-By cloning the application to your device and making changes and pushing those changes to be reviewed
+By cloning the application to your device and making changes and pushing those changes to be reviewed.
 ## Tests  
 I went through all of the mothods of using the application and made correct and ioncorrect requests to test the applications functionality and error handling.  
 ## Questions  
